@@ -27,3 +27,18 @@ HTML标签生成的区域分为块级元素和行内元素。
 在标签内部设置标签属性。标签同时可以存在多个属性，属性之间、标签名与属性之间空格隔开，没有顺序之分。部分属性不需要值直接生效。  
 &ensp;&ensp;&ensp;&ensp;
 <标签名 属性A="属性值" 属性B="属性值" >
+
+## 绝对路径 & 相对路径
+
+&ensp;&ensp;&ensp;&ensp;
+绝对路径：指目录的绝对位置，通常从盘符开始。  
+&ensp;&ensp;&ensp;&ensp;
+相对路径：指从当前文件位置开始寻找文件。
+
+```text
+绝对地址-盘符路径：D:\workspace\demo\img.jpg
+绝对地址-网络地址：http://www.baidu.com/img.icon
+相对地址-同级目录：img.jpg 或 ./img.jpg
+相对地址-子目录：./workspace/img.jpg
+相对地址：父目录：../img.jpg
+```
