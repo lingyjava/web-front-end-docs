@@ -19,9 +19,18 @@
 &ensp;&ensp;&ensp;&ensp;
 显示收集用户信息的表单效果。
 ```html
-<input type="">
+<input type="" id="">
 ```
-- type为必选属性，属性值不同展示效果不同。
+标签属性：
+- type=""：必选属性，属性值不同展示效果不同。
+- id=""：唯一标识符。
+- value=""：表单元素对应的值。
+- readonly：只读，不可改。
+- hidden：隐藏，不可见。
+- disabled：禁用，不可选。
+- placeholder=""：输入框提示信息。
+- required：非空判断。
+- pattern=""：正则表达式判断。
 
 ### input-文本框
 &ensp;&ensp;&ensp;&ensp;
@@ -81,6 +90,17 @@
 ---
 按钮框特有属性：
 - value：按钮名。
+
+### input-其他type
+```html
+<input type="date">日期
+<input type="hidden">隐藏域
+<input type="email">邮箱
+<input type="url">链接
+<input type="number">数字
+<input type="range">滑块
+<input type="search">搜索框
+```
 
 ## button标签
 &ensp;&ensp;&ensp;&ensp;
