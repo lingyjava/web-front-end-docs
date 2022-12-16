@@ -9,6 +9,9 @@
 
 - [HTML排版标签](./docs/html/HTML排版标签.md)
 - [HTML文本格式化标签](./docs/html/HTML文本格式化标签.md)
+- [HTML媒体标签](./docs/html/HTML媒体标签.md)
+- [HTML表格标签](./docs/html/HTML表格标签.md)
+- [HTML表单标签](./docs/html/HTML表单标签.md)
 
 ## CSS
 

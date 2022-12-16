@@ -23,3 +23,29 @@
 ## 页面元素
 &ensp;&ensp;&ensp;&ensp;HTML是一种特殊的语法，通常以成对的标签形式出现，让浏览器识别并构建网页的基本元素。
 通过标记的形式构建网页元素，构建网页的结构。
+
+## 页面结构
+
+```html
+<!--DOCTYPE：告诉浏览器，我们需要使用什么规范-->
+<!DOCTYPE html>
+
+<html lang="EN">
+
+<!--head标签代表网页头部-->
+<head>
+
+    <title>网页标题</title>
+
+    <!--meta描述性标签，它用来描述网站的一些信息-->
+    <meta charest="UTF-8">
+    <meta name="keywords" content="html5">
+
+</head>
+
+<!--body标签代表网页主体-->
+<body>
+
+</body>
+</html>
+```

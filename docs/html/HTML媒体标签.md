@@ -70,3 +70,12 @@ a双标签，跳转到链接页面，标签内部为展示的文本内容。
 <a href="#">查看详情</a>
 ```
 
+## 内联框架
+
+&ensp;&ensp;&ensp;&ensp; 
+引入外部的视频、音频、网页、图片等。
+
+```html
+<!--内联框架 src:地址 w-h:宽高度-->
+<iframe src="https://www.baidu.com" width="" height=""></iframe>
+```
