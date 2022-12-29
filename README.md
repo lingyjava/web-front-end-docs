@@ -20,6 +20,7 @@
 - [CSS选择器](./docs/css/CSS选择器.md)
 - [CSS文本样式](./docs/css/CSS文本样式.md)
 - [CSS背景](./docs/css/CSS背景.md)
+- [CSS显示模式](./docs/css/CSS显示模式.md)
 
 ## JavaScript
 
