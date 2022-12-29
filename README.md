@@ -19,6 +19,7 @@
 - [CSS重要特性](./docs/css/CSS重要特性.md)
 - [CSS选择器](./docs/css/CSS选择器.md)
 - [CSS文本样式](./docs/css/CSS文本样式.md)
+- [CSS背景](./docs/css/CSS背景.md)
 
 ## JavaScript
 
