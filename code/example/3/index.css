@@ -1,0 +1,21 @@
+div {
+    height: 40px;
+    border-top: 3px solid orange;
+    border-bottom: 1px solid whitesmoke;
+}
+
+div a {
+    padding: 0 16px;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    color: #000;
+    text-align: center;
+}
+
+div a:hover {
+   color: orange;
+    background-color: ghostwhite;
+}
