@@ -109,3 +109,31 @@ div {
 常见标准流排版规则：
 - 块级元素：独占一行，从上往下，垂直布局。
 - 行内元素 或 行内块元素：一行可以排列多个，从左往右，水平布局。
+
+## 行内元素 行内块元素问题
+浏览器在解析行内标签和行内块元素时，如果标签换行书写则会产生一个空格的距离。
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <title>test</title>
+  <style>
+    div {
+      display: inline-block;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+
+<!--div1和div2之间存在空格-->
+<div>1</div>
+<div>2</div>
+
+<!--div3和div4紧挨着-->
+<div>3</div><div>4</div>
+
+</body>
+</html>
+```
