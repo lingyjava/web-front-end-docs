@@ -1,5 +1,22 @@
 # HTML表单标签
 
+<!-- TOC -->
+* [HTML表单标签](#html表单标签)
+  * [form标签](#form标签)
+  * [get & post](#get--post)
+  * [input标签](#input标签)
+    * [input-文本框](#input-文本框)
+    * [input-选择框](#input-选择框)
+    * [input-文件框](#input-文件框)
+    * [input-按钮框](#input-按钮框)
+    * [input-其他type](#input-其他type)
+  * [button标签](#button标签)
+  * [select标签](#select标签)
+  * [textarea标签](#textarea标签)
+  * [label标签](#label标签)
+  * [表单练习](#表单练习)
+<!-- TOC -->
+
 ## form标签
 &ensp;&ensp;&ensp;&ensp;
 表示表单主体，包裹其他表单标签。

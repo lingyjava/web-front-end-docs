@@ -2,6 +2,16 @@
 
 > HTML（Hyper Text Markup Language）：超文本标记语言。  
 
+<!-- TOC -->
+* [HTML简述](#html简述)
+  * [W3C（World Wide Web Consortium）：万维网联盟制定的标准](#w3cworld-wide-web-consortium万维网联盟制定的标准)
+  * [浏览器内核](#浏览器内核)
+  * [页面元素](#页面元素)
+  * [注释](#注释)
+  * [标签](#标签)
+  * [页面结构](#页面结构)
+<!-- TOC -->
+
 ## W3C（World Wide Web Consortium）：万维网联盟制定的标准
 
 &ensp;&ensp;&ensp;&ensp;网络中的每个网页都由代码组成，但是打开网页的浏览器有很多种，浏览器内核通过渲染引擎解析前端代码
