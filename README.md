@@ -23,6 +23,7 @@
 - [CSS显示模式](./docs/css/CSS显示模式.md)
 - [CSS盒子模型](./docs/css/CSS盒子模型.md)
 - [CSS浮动](./docs/css/CSS浮动.md)
+- [CSS定位装饰](./docs/css/CSS定位装饰.md)
 
 ## JavaScript
 

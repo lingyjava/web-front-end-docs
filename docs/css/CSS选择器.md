@@ -16,6 +16,7 @@
   * [伪类选择器](#伪类选择器)
   * [结构伪类选择器](#结构伪类选择器)
   * [伪元素](#伪元素)
+  * [作用域](#作用域)
 <!-- TOC -->
 
 ## 标签选择器
@@ -171,3 +172,12 @@ span::after {
   content: 'span标签结束';
 }
 ```
+
+## 作用域
+::placeholder：控制input标签的placeholder属性。
+```css
+input::placeholder {
+  
+}
+```
+
