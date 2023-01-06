@@ -9,6 +9,8 @@
   * [背景复合属性](#背景复合属性)
   * [背景图与图片的区别](#背景图与图片的区别)
   * [图片垂直位置](#图片垂直位置)
+  * [精灵图](#精灵图)
+  * [背景图片大小](#背景图片大小)
 <!-- TOC -->
 
 ## 背景颜色
@@ -72,7 +74,7 @@ div {
 
 ## 背景复合属性
 属性名：background（bg）  
-属性值：单个属性值之间用空格隔开，没有顺序之分，推荐顺序是：color image repeat position  
+属性值：单个属性值之间用空格隔开，没有顺序之分，推荐顺序是：color image repeat position/size  
 
 使用注意：
 - 可以按需省略任意属性。
@@ -81,7 +83,7 @@ div {
 
 ```css
 div {
-    background: #000 url("#") no-repeat center;
+    background: #000 url("#") no-repeat center/cover;
 }
 ```
 
@@ -94,3 +96,41 @@ div {
 调节图片垂直对齐方式。  
 属性名：vertical-align  
 属性值：middle（居中）
+
+## 精灵图
+将多张小图片合并成一张大图片，这张大图片称为精灵图。  
+可以减少服务器发送次数，减轻服务器压力，提高页面加载速度。
+
+实现步骤：
+1. 创建一个盒子，设置盒子的尺寸和小图尺寸相同。
+2. 将精灵图设置为盒子的背景图片。
+3. 修改背景图位置，分别设置给盒子的background-position属性找到对应需要的小图。
+4. 精灵图的标签都用行内标签。
+
+```css
+span {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url("#");
+  background-position: -5px 0;
+}
+```
+
+## 背景图片大小
+设置背景图片的大小。  
+属性名：background-size
+
+属性值：宽度 高度  
+取值方式：
+- 数值 + px
+- 百分之：相对于当前盒子自身的宽高百分比。
+- contain：包含，将背景图片等比例缩放，直到不会超出盒子的最大大小。
+- cover：覆盖，将背景图片等比例缩放，直到刚好填满整个盒子没有空白。
+
+```css
+div {
+  background-size: cover;
+}
+```
+
