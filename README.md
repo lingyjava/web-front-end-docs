@@ -24,10 +24,13 @@
 - [CSS盒子模型](./docs/css/CSS盒子模型.md)
 - [CSS浮动](./docs/css/CSS浮动.md)
 - [CSS定位装饰](./docs/css/CSS定位装饰.md)
+- [CSS动态样式](./docs/css/CSS动态样式.md)
 
-## 移动web
+## 移动端
 
-- [1·网页效果](./docs/webapp/1·网页效果.md)
+- [1·移动端特点](./docs/mobile/1·移动端特点.md)
+- [2·Flex布局](./docs/mobile/2·Flex布局.md)
+
 
 ## JavaScript
 
