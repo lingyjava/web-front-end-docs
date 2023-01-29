@@ -42,6 +42,7 @@
 - [2·JS变量](./docs/js/base/2·JS变量.md)
 - [3·JS数据类型](./docs/js/base/3·JS数据类型.md)
 - [4·JS运算符](./docs/js/base/4·JS运算符.md)
+- [5·JS流程控制](./docs/js/base/5·JS流程控制.md)
 - []()
 
 
