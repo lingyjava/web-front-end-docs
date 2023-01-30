@@ -45,6 +45,8 @@
 - [5·JS流程控制](./docs/js/base/5·JS流程控制.md)
 - [6·JS数组](./docs/js/base/6·JS数组.md)
 - [7·JS函数](./docs/js/base/7·JS函数.md)
+- [8·JS作用域](./docs/js/base/8·JS作用域.md)
+- [9·JS对象](./docs/js/base/9·JS对象.md)
 - []()
 
 
