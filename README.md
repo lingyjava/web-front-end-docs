@@ -47,6 +47,7 @@
 - [7·JS函数](./docs/js/base/7·JS函数.md)
 - [8·JS作用域](./docs/js/base/8·JS作用域.md)
 - [9·JS对象](./docs/js/base/9·JS对象.md)
+- [10·JS包装类型](./docs/js/base/10·JS包装类型.md)
 - []()
 
 
