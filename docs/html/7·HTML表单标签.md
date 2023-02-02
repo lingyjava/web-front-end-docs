@@ -1,7 +1,7 @@
-# HTML表单标签
+# 7·HTML表单标签
 
 <!-- TOC -->
-* [HTML表单标签](#html表单标签)
+* [7·HTML表单标签](#7html表单标签)
   * [form标签](#form标签)
   * [get & post](#get--post)
   * [input标签](#input标签)

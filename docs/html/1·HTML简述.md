@@ -1,9 +1,9 @@
-# HTML简述
+# 1·HTML简述
 
 > HTML（Hyper Text Markup Language）：超文本标记语言。  
 
 <!-- TOC -->
-* [HTML简述](#html简述)
+* [1·HTML简述](#1html简述)
   * [W3C（World Wide Web Consortium）：万维网联盟制定的标准](#w3cworld-wide-web-consortium万维网联盟制定的标准)
   * [浏览器内核](#浏览器内核)
   * [页面元素](#页面元素)
