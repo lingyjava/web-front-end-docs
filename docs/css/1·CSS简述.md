@@ -1,9 +1,9 @@
-# CSS简述
+# 1·CSS简述
 
 > CSS（Cascading style sheets）层叠样式表。
 
 <!-- TOC -->
-* [CSS简述](#css简述)
+* [1·CSS简述](#1css简述)
   * [作用](#作用)
   * [导入方式](#导入方式)
   * [注释](#注释)
