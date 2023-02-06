@@ -10,6 +10,9 @@
   * [this](#this)
   * [JS执行机制](#js执行机制)
   * [location对象](#location对象)
+    * [url的组成](#url的组成)
+    * [location常用属性](#location常用属性)
+    * [location常用方法](#location常用方法)
   * [navigator对象](#navigator对象)
   * [history对象](#history对象)
 <!-- TOC -->
