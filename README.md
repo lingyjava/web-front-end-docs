@@ -53,6 +53,7 @@
 
 - [1·DOM](./docs/js/core/1·DOM.md)
 - [2·事件高级](./docs/js/core/2·事件高级.md)
+- [3·BOM](./docs/js/core/3·BOM.md)
 - []()
 
 ### ajax
