@@ -55,6 +55,7 @@
 - [2·事件高级](./docs/js/core/2·事件高级.md)
 - [3·BOM](./docs/js/core/3·BOM.md)
 - [4·PC端网页特效](./docs/js/core/4·PC端网页特效.md)
+- [5·移动端网页特效](./docs/js/core/5·移动端网页特效.md)
 - []()
 
 ### ajax
