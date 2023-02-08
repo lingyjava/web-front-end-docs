@@ -61,6 +61,7 @@
 ### jQuery
 
 - [1·jQuery简介](docs/js/jquery/1·jQuery简介.md)
+- [2·jQuery选择器](docs/js/jquery/2·jQuery选择器.md)
 
 ### ajax
 
