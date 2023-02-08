@@ -56,6 +56,8 @@
 - [3·BOM](./docs/js/core/3·BOM.md)
 - [4·PC端网页特效](./docs/js/core/4·PC端网页特效.md)
 - [5·移动端网页特效](./docs/js/core/5·移动端网页特效.md)
-- []()
+- [6·JS本地存储](./docs/js/core/6·JS本地存储.md)
 
 ### ajax
+
+- []()
