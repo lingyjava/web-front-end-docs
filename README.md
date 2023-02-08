@@ -58,6 +58,11 @@
 - [5·移动端网页特效](./docs/js/core/5·移动端网页特效.md)
 - [6·JS本地存储](./docs/js/core/6·JS本地存储.md)
 
+### jQuery
+
+- [1·jQuery简介](docs/js/jquery/1·jQuery简介.md)
+
 ### ajax
 
-- []()
+- [1·ajax](./docs/js/ajax/1·ajax.md)
+
