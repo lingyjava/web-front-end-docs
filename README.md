@@ -66,7 +66,7 @@
 - [4·jQueryDOM](./docs/js/jquery/4·jQueryDOM.md)
 - [5·jQuery其他方法](./docs/js/jquery/5·jQuery其他方法.md)
 
-### ajax
+### AJAX
 
-- [1·ajax应用](./docs/js/ajax/1·ajax应用.md)
+- [1·AJAX应用](./docs/js/ajax/1·AJAX应用.md)
 
