@@ -159,4 +159,12 @@ jQuery中用于控制元素淡入和淡出效果的方法。
 - 透明度数值，范围在0~1之间，0代表完全透明
 
 ### 自定义动画
+jQuery中提供了animate()方法自定义动画。
 
+```js
+$(selector).animate(params[, speed][, easing][, fn])
+// params表示想要更改的样式，以对象形式传递，样式名可以不用带引号，但如果样式名中有“-”（如border-left），需要用驼峰命名法（如borderLeft）。
+// 其余参数的含义与动画方法相同。
+
+$("div").animate({ left: 500, top: 300, opacity: .4, width: 500 }, 500);
+```
