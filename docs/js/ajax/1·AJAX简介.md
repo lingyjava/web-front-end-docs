@@ -1,7 +1,7 @@
-# 1·AJAX应用.md
+# 1·AJAX简介.md
 
 <!-- TOC -->
-- [1·AJAX应用.md](#1ajax应用md)
+- [1·AJAX简介.md](#1ajax简介md)
   - [官方文档](#官方文档)
   - [客户端与服务器](#客户端与服务器)
   - [URL](#url)
