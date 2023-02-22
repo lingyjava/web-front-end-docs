@@ -1,197 +1,197 @@
-# 4��jQueryDOM
+# 4·jQueryDOM
 
-- [4��jQueryDOM](#4jquerydom)
-  - [���Բ���](#���Բ���)
-    - [prop����](#prop����)
-    - [attr����](#attr����)
-    - [data����](#data����)
-  - [���ݲ���](#���ݲ���)
-  - [Ԫ�ز���](#Ԫ�ز���)
-    - [����](#����)
-    - [����](#����)
-    - [����](#����)
-      - [�ڲ�����](#�ڲ�����)
-      - [�ⲿ����](#�ⲿ����)
-    - [ɾ��](#ɾ��)
-  - [�ߴ�](#�ߴ�)
-  - [λ��](#λ��)
-  - [�¼�](#�¼�)
-    - [�¼���](#�¼���)
-    - [�¼�ί��](#�¼�ί��)
-    - [�¼����](#�¼����)
-    - [�����¼�](#�����¼�)
-      - [�¼���������](#�¼���������)
-      - [trigger��������](#trigger��������)
-      - [triggerHandler��������](#triggerhandler��������)
-    - [�¼�����](#�¼�����)
+- [4·jQueryDOM](#4jquerydom)
+  - [属性操作](#属性操作)
+    - [prop方法](#prop方法)
+    - [attr方法](#attr方法)
+    - [data方法](#data方法)
+  - [内容操作](#内容操作)
+  - [元素操作](#元素操作)
+    - [遍历](#遍历)
+    - [创建](#创建)
+    - [添加](#添加)
+      - [内部添加](#内部添加)
+      - [外部添加](#外部添加)
+    - [删除](#删除)
+  - [尺寸](#尺寸)
+  - [位置](#位置)
+  - [事件](#事件)
+    - [事件绑定](#事件绑定)
+    - [事件委派](#事件委派)
+    - [事件解绑](#事件解绑)
+    - [触发事件](#触发事件)
+      - [事件方法触发](#事件方法触发)
+      - [trigger方法触发](#trigger方法触发)
+      - [triggerHandler方法触发](#triggerhandler方法触发)
+    - [事件对象](#事件对象)
 
 
-## ���Բ���
+## 属性操作
 
-### prop����
-prop()�����������û��ȡԪ�ع�������ֵ��Ԫ�ع���������ָԪ�ر����Դ������ԡ�
+### prop方法
+prop()方法用来设置或获取元素固有属性值。元素固有属性是指元素本身自带的属性。
 
 ```js
-$(selector).prop("������")                // ��ȡ����ֵ
-$(selector).prop("����", "����ֵ")    // ��������ֵ
+$(selector).prop("属性名")                // 获取属性值
+$(selector).prop("属性", "属性值")    // 设置属性值
 
-$("a").prop("title", "��ҳ");
+$("a").prop("title", "首页");
 ```
 
-### attr����
-attr()�������û��ȡԪ�ص��Զ������ԣ��Զ���������ָ�û���Ԫ�����ӵķǹ������ԡ��Զ��������޷�ʹ��prop()���úͻ�ȡ��
+### attr方法
+attr()用来设置或获取元素的自定义属性，自定义属性是指用户给元素添加的非固有属性。自定义属性无法使用prop()设置和获取。
 
 ```js
-$(selector).attr("������")            // ��ȡ����ֵ
-$(selector).attr("����", "����ֵ")        // ��������ֵ
+$(selector).attr("属性名")            // 获取属性值
+$(selector).attr("属性", "属性值")        // 设置属性值
 
 $("div").attr("index", 3);
 $("div").attr("data-index", 4);
 ```
 
-### data����
-data()����������ָ����Ԫ���ϴ�ȡ���ݣ����ݱ������ڴ��У��������޸�DOMԪ�ؽṹ��һ��ҳ��ˢ�£�֮ǰ��ŵ����ݶ������Ƴ���
+### data方法
+data()方法用来在指定的元素上存取数据，数据保存在内存中，并不会修改DOM元素结构。一旦页面刷新，之前存放的数据都将被移除。
 
 ```js
-$(selector).data("������")                    // ��ȡ����
-$(selector).data("������", "����ֵ")     // ��������
+$(selector).data("数据名")                    // 获取数据
+$(selector).data("数据名", "数据值")     // 设置数据
 
 $("div").data("uname", "andy");
 ```
 
-## ���ݲ���
-jQuery�в���Ԫ�����ݵķ�������Ҫ����html()������text()������val()������
+## 内容操作
+jQuery中操作元素内容的方法，主要包括html()方法、text()方法和val()方法。
 
-html()�������ڻ�ȡ������Ԫ�ص�HTML���ݣ�text()�������ڻ�ȡ������Ԫ�ص��ı����ݣ�val()����������ȡ�����ñ���Ԫ�ص�valueֵ��
+html()方法用于获取或设置元素的HTML内容，text()方法用于获取或设置元素的文本内容，val()方法用来获取或设置表单元素的value值。
 
-| �﷨          |                     ˵��                     |
+| 语法          |                     说明                     |
 | ------------- | :------------------------------------------: |
-| html()        |         ��ȡ��һ��ƥ��Ԫ�ص�HTML����         |
-| html(content) |         ���õ�һ��ƥ��Ԫ�ص�HTML����         |
-| text()        | ��ȡ����ƥ��Ԫ�ذ������ı���������������ı� |
-| text(content) |          ��������ƥ��Ԫ�ص��ı�����          |
-| val()         |            ��ȡ����Ԫ�ص�valueֵ             |
-| val(value)    |            ���ñ���Ԫ�ص�valueֵ             |
+| html()        |         获取第一个匹配元素的HTML内容         |
+| html(content) |         设置第一个匹配元素的HTML内容         |
+| text()        | 获取所有匹配元素包含的文本内容组合起来的文本 |
+| text(content) |          设置所有匹配元素的文本内容          |
+| val()         |            获取表单元素的value值             |
+| val(value)    |            设置表单元素的value值             |
 
-## Ԫ�ز���
+## 元素操作
 
-### ����
-jQuery������ʽ������Ч������һ��jQuery�����а������Ԫ��ʱ�������ЩԪ�ؽ�����ͬ�Ĳ����������Ҫ����ЩԪ�ؽ��б���������ʹ��jQuery�ṩ��each()������
+### 遍历
+jQuery具有隐式迭代的效果，当一个jQuery对象中包含多个元素时，会对这些元素进行相同的操作。如果想要对这些元素进行遍历，可以使用jQuery提供的each()方法。
 
 ```js
 $(selector).each(function(index, domEle) {
-// ��ÿ��Ԫ�ؽ��в���
+// 对每个元素进行操作
 });
-// each()���������$(selector)�����е�Ԫ��
-// index������ÿ��Ԫ�ص�������
-// domEle��ÿ��DOMԪ�ض���,����jQuery����,���Ҫ��ʹ��jQuery��������Ҫ�����DOM����ת����ΪjQuery���󣬼�$(domEle)
+// each()方法会遍历$(selector)对象中的元素
+// index参数是每个元素的索引号
+// domEle是每个DOM元素对象,不是jQuery对象,如果要想使用jQuery方法，需要将这个DOM对象转换成为jQuery对象，即$(domEle)
 
 $("div").each(function (index, domEle) {
- console.log(index);         // �鿴������
- console.log(domEle);        // �鿴DOMԪ��
- $(domEle).css("color", arr[i]);    // ��ÿ��Ԫ�ؽ��в���                               
+ console.log(index);         // 查看索引号
+ console.log(domEle);        // 查看DOM元素
+ $(domEle).css("color", arr[i]);    // 对每个元素进行操作                               
 });
 ```
 
-### ����
-jQuery���Ժܷ���ض�̬����һ��Ԫ�أ�ֱ���ڡ�$()�������д���һ��HTML�ַ������ɽ��д�����
+### 创建
+jQuery可以很方便地动态创建一个元素，直接在“$()”函数中传入一个HTML字符串即可进行创建。
 
 ```js
-var li = $("<li>���Ǻ���������li</li>");  // ����Ԫ��,�������ڴ���,��Ҫ��������Ԫ�ط�������Ԫ�����ӵ�ҳ���С�
+var li = $("<li>我是后来创建的li</li>");  // 创建元素,保存在内存中,需要利用添加元素方法，将元素添加到页面中。
 ```
 
-### ����
-jQuery�ṩ������Ԫ�صķ���������ΪĿ��Ԫ������ĳ��Ԫ�ء����ӵķ�ʽ�����֣��ֱ����ڲ����Ӻ��ⲿ���ӡ�
+### 添加
+jQuery提供了添加元素的方法，用来为目标元素添加某个元素。添加的方式有两种，分别是内部添加和外部添加。
 
-#### �ڲ�����
-�ڲ����ӵķ�ʽ����ʵ����Ԫ���ڲ�����Ԫ�أ����ҿ��Էŵ��ڲ�������������ǰ�档�ڲ�������Ҫͨ��append()��prepend()������ʵ�֡�
+#### 内部添加
+内部添加的方式可以实现在元素内部添加元素，并且可以放到内部的最后面或者最前面。内部添加主要通过append()和prepend()方法来实现。
 
 ```js
-var li = $("<li>���Ǻ���������li</li>");
-$("ul").append(li);    // �ڲ����Ӳ��ҷŵ��ڲ��������
-$("ul").prepend(li);    // �ڲ����Ӳ��ҷŵ��ڲ�����ǰ��
+var li = $("<li>我是后来创建的li</li>");
+$("ul").append(li);    // 内部添加并且放到内部的最后面
+$("ul").prepend(li);    // 内部添加并且放到内部的最前面
 ```
 
-#### �ⲿ����
-�ⲿ���Ӿ��ǰ�Ԫ�ط���Ŀ��Ԫ�صĺ������ǰ�棬ͨ��after()��before()������ʵ�֡�
+#### 外部添加
+外部添加就是把元素放入目标元素的后面或者前面，通过after()和before()方法来实现。
 
 ```js
-var div = $("<div>���Ǻ���������div</div>");
-$(".test").after(div);   // div���뵽Ŀ��Ԫ�صĺ���
-$(".test").before(div);  // div���뵽Ŀ��Ԫ�ص�ǰ��
+var div = $("<div>我是后来创建的div</div>");
+$(".test").after(div);   // div放入到目标元素的后面
+$(".test").before(div);  // div放入到目标元素的前面
 ```
 
-### ɾ��
-ɾ��Ԫ�ط�Ϊɾ��ƥ���Ԫ�ر�����ɾ��ƥ���Ԫ��������ӽڵ����������
+### 删除
+删除元素分为删除匹配的元素本身、删除匹配的元素里面的子节点两种情况。
 
-empty()��������ɾ��ƥ��Ԫ�ص��ı����ݣ���Ԫ�ؽڵ���Ȼ���ڣ�remove()���������ͬʱɾ��ƥ��Ԫ�ر������ı����ݡ�
+empty()方法仅能删除匹配元素的文本内容，而元素节点依然存在；remove()方法则可以同时删除匹配元素本身和文本内容。
 
-����html()���������޸�Ԫ�ص����ݣ�����ڲ����д���һ�����ַ�����Ҳ����ʵ��ɾ��Ԫ���ӽڵ��Ч�����硰$("ul").html("")����
+利用html()方法可以修改元素的内容，如果在参数中传入一个空字符串，也可以实现删除元素子节点的效果，如“$("ul").html("")”。
 
-| �﷨           |                            ˵��                            |
+| 语法           |                            说明                            |
 | -------------- | :--------------------------------------------------------: |
-| empty()        |              ���Ԫ�ص����ݣ�����ɾ��Ԫ�ر���              |
-| remove([expr]) | ���Ԫ�ص����ݣ���ɾ��Ԫ�ر�������ѡ����expr����ɸѡԪ�أ� |
+| empty()        |              清空元素的内容，但不删除元素本身              |
+| remove([expr]) | 清空元素的内容，并删除元素本身（可选参数expr用于筛选元素） |
 
 
 ```js
-$("ul").remove();   // ɾ��ƥ���Ԫ��
-$("ul").empty();    // ɾ��ƥ���Ԫ��������ӽڵ�
+$("ul").remove();   // 删除匹配的元素
+$("ul").empty();    // 删除匹配的元素里面的子节点
 ```
 
-## �ߴ�
-jQuery�У��ߴ緽��������ȡ������Ԫ�صĿ��Ⱥ͸߶ȡ������ķ���ֵ���������͡�
+## 尺寸
+jQuery中，尺寸方法用来获取或设置元素的宽度和高度。方法的返回值都是数字型。
 
-���õĳߴ緽����
-| ����              |                    ˵��                     |
+常用的尺寸方法：
+| 方法              |                    说明                     |
 | ----------------- | :-----------------------------------------: |
-| width()           |             ��ȡ������Ԫ�ؿ���              |
-| height()          |             ��ȡ������Ԫ�ظ߶�              |
-| outerWidth(true)  | ��ȡԪ�ؿ��ȣ�����padding��border��margin�� |
-| outerHeight(true) | ��ȡԪ�ظ߶ȣ�����padding��border��margin�� |
-| innerWidth()      |         ��ȡԪ�ؿ��ȣ�����padding��         |
-| innerHeight()     |         ��ȡԪ�ظ߶ȣ�����padding��         |
-| outerWidth()      |     ��ȡԪ�ؿ��ȣ�����padding��border��     |
-| outerHeight()     |     ��ȡԪ�ظ߶ȣ�����padding��border��     |
+| width()           |             获取或设置元素宽度              |
+| height()          |             获取或设置元素高度              |
+| outerWidth(true)  | 获取元素宽度（包含padding、border、margin） |
+| outerHeight(true) | 获取元素高度（包含padding、border、margin） |
+| innerWidth()      |         获取元素宽度（包含padding）         |
+| innerHeight()     |         获取元素高度（包含padding）         |
+| outerWidth()      |     获取元素宽度（包含padding、border）     |
+| outerHeight()     |     获取元素高度（包含padding、border）     |
 
 ```js
-$("div").width();       // ��������200px
-$("div").width(300);    // ���ÿ���Ϊ300px
+$("div").width();       // 输出结果：200px
+$("div").width(300);    // 设置宽度为300px
 ```
 
-## λ��
-jQuery����λ�õķ�����Ҫ��offset()��position()��scrollTop()��scrollLeft()��
+## 位置
+jQuery操作位置的方法主要有offset()、position()、scrollTop()和scrollLeft()。
 
-offset()�������Ի�ȡԪ�ص�λ�ã����ص���һ�����󣬰���left��top���ԣ���ʾ������ĵ���ƫ�����꣬�͸���Ԫ��û�й�ϵ��
+offset()方法可以获取元素的位置，返回的是一个对象，包含left和top属性，表示相对于文档的偏移坐标，和父级元素没有关系。
 ```js
-// ��ȡƫ��
-$(".son").offset();    // �����topΪ20��leftΪ20
-$(".son").offset().top; // �����20
-// ����ƫ��
+// 获取偏移
+$(".son").offset();    // 结果：top为20，left为20
+$(".son").offset().top; // 结果：20
+// 设置偏移
 $(".son").offset({ top: 100, left: 100 });
 ```
 
-position()�������ڻ�ȡԪ�ؾ��븸Ԫ�ص�λ�ã������Ԫ��û�����ö�λ����CSS�е�position�������ȡ�Ľ���Ǿ����ĵ���λ�á�
+position()方法用于获取元素距离父元素的位置，如果父元素没有设置定位（即CSS中的position），则获取的结果是距离文档的位置。
 ```js
-$(".son").position().top; // ��ȡ���붥����λ��
-$(".son").position().left; // ��ȡ��������λ��
-// position()����ֻ�ܻ�ȡԪ��λ�ã���������Ԫ��λ�á�
+$(".son").position().top; // 获取距离顶部的位置
+$(".son").position().left; // 获取距离左侧的位置
+// position()方法只能获取元素位置，不能设置元素位置。
 ```
 
-scrollTop()�������ڻ�ȡ������Ԫ�ر���ȥ��ͷ�����룬scrollLeft()�������ڻ�ȡ������Ԫ�ر���ȥ�������롣
+scrollTop()方法用于获取或设置元素被卷去的头部距离，scrollLeft()方法用于获取或设置元素被卷去的左侧距离。
 ```js
-// ��ȡԪ�ؾ���ҳ�����ľ���
+// 获取元素距离页面左侧的距离
 $(".container").offsetLeft();
-// ����Ԫ�ؾ���ҳ�涥���ľ���
+// 设置元素距离页面顶部的距离
 $(document).scrollTop(100);
 ```
 
-## �¼�
+## 事件
 
-### �¼���
-jQuery�У�ʵ���¼��������ַ�ʽ��һ����ͨ���¼��������а󶨣���һ����ͨ��on()�������а󶨡�
+### 事件绑定
+jQuery中，实现事件绑定有两种方式，一种是通过事件方法进行绑定，另一种是通过on()方法进行绑定。
 
-jQuery���¼���DOM�е��¼���ȣ�ʡ���˿�ͷ�ġ�on�������ң�jQuery���¼���������Ϊһ���¼��󶨶���¼�����������ֻ���ε����¼����������벻ͬ�ĺ������ɡ�
+jQuery的事件和DOM中的事件相比，省略了开头的“on”，并且，jQuery的事件方法允许为一个事件绑定多个事件处理函数，只需多次调用事件方法，传入不同的函数即可。
 
 ```js
 $("div").click(function() {
@@ -202,17 +202,17 @@ $("div").mouseenter(function() {
 });
 ```
 
-ͨ��on()�������¼�,on()������ƥ��Ԫ���ϰ�һ�������¼�����������
+通过on()方法绑定事件,on()方法在匹配元素上绑定一个或多个事件处理函数。
 ```js
 element.on(events, [selector], fn)
-// events��ʾһ�������ÿո�ָ����¼�����
-// fn��ʾ�ص�����
+// events表示一个或多个用空格分隔的事件类型
+// fn表示回调函数
 
-// һ�ΰ�һ���¼�
+// 一次绑定一个事件
 $("div").on("click", function() {
     $(this).css("background", "yellow")
 });
-// һ�ΰ󶨶���¼�
+// 一次绑定多个事件
 $("div").on({
     mouseenter: function() {
         $(this).css("background", "skyblue");
@@ -224,84 +224,84 @@ $("div").on({
         $(this).css("background", "blue");
     }
 });
-// Ϊ��ͬ�¼�����ͬ���¼���������
+// 为不同事件绑定相同的事件处理函数
 $("div").on("mouseenter mouseleave", function() {
     $(this).toggleClass("current");
 });
 ```
 
-### �¼�ί��
-�¼�ί����ָ����ԭ��Ҫ����Ԫ�ذ󶨵��¼����󶨵���Ԫ���ϣ���ͱ�ʾ����Ԫ�ص��¼�ί�ɸ���Ԫ�ء�
-�����¼���ð�ݻ��ƣ���һ��Ԫ�ش����¼�ʱ���������ַ����¼����Ǹ�Ԫ�ػ�����Ԫ�ء�
+### 事件委派
+事件委派是指，把原本要给子元素绑定的事件，绑定到父元素上，这就表示把子元素的事件委派给父元素。
+由于事件有冒泡机制，当一个元素触发事件时，可以区分发生事件的是父元素还是子元素。
 
-�¼�ί����ͨ��on()������ʵ��:
+事件委派是通过on()方法来实现:
 ```html
 <ul>
-    <li>���ǵ�1��li</li>
-    <li>���ǵ�2��li</li>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
 </ul>
 <script>
     $("ul").on("click", "li:first-child", function() {
-        alert("������li");  // ������1��li�ᴥ�����¼�
+        alert("单击了li");  // 单击第1个li会触发此事件
     });
 </script>
 ```
-click�¼��ǰ��ڸ�Ԫ��ul�ϵģ��������¼����ǵ�1��li��Ԫ�أ�����Ԫ�ش����¼��󣬾ͻ�ͨ���¼�ð�ݣ�ִ�и�Ԫ��ul���¼����������ˡ�
+click事件是绑定在父元素ul上的，但触发事件的是第1个li子元素，当子元素触发事件后，就会通过事件冒泡，执行父元素ul的事件处理程序了。
 
-���¼�ί�ɵ�����£��¼����������е�this��ʾ�����¼���Ԫ�أ������������еĵ�1��liԪ�أ�������ί���¼���ulԪ�ء�
+在事件委派的情况下，事件处理函数中的this表示触发事件的元素，即上述代码中的第1个li元素，并不是委派事件的ul元素。
 
-�¼�ί�ɵ��������ڣ�����Ϊδ����̬������Ԫ�ذ��¼�����ԭ���ǽ��¼�ί�ɸ���Ԫ�غ��ڸ�Ԫ���ж�̬��������Ԫ��Ҳ��ӵ���¼���
+事件委派的优势在于，可以为未来动态创建的元素绑定事件。其原理是将事件委派给父元素后，在父元素中动态创建的子元素也会拥有事件。
 
-### �¼����
-�¼����ʹ��off()�������÷��������Ƴ�ͨ��on()�������ӵ��¼���������
+### 事件解绑
+事件解绑使用off()方法，该方法可以移除通过on()方法添加的事件处理程序。
 
 ```js
-$('p').off();          // ���pԪ���ϵ������¼���������
-$('p').off('click');       // ���pԪ���ϵĵ����¼�
-$('ul').off('click', 'li');   // ����¼�ί��
+$('p').off();          // 解除p元素上的所有事件处理程序
+$('p').off('click');       // 解绑p元素上的单击事件
+$('ul').off('click', 'li');   // 解绑事件委派
 
-// ��1������Ϊ�¼����ͣ���ʾ��������¼���������յĲ���Ϊ�գ���ʾ����������¼���������
-// ��2��������ʾ����¼�ί�С�
+// 第1个参数为事件类型，表示解除单击事件，如果接收的参数为空，表示解除掉所有事件处理程序。
+// 第2个参数表示解绑事件委托。
 ```
 
-### �����¼�
-jQuery�У������¼���3�ַ�ʽ����1���ǵ����¼���������2����ͨ��trigger()���������¼�����3����ͨ��triggerHandler()���������¼���
+### 触发事件
+jQuery中，触发事件有3种方式，第1种是调用事件方法；第2种是通过trigger()方法触发事件，第3种是通过triggerHandler()方法触发事件。
 
-#### �¼���������
-jQuery�е��¼������ڵ���ʱ�������������ʾ���¼������������������ʾ�����¼���
+#### 事件方法触发
+jQuery中的事件方法在调用时如果传参数，表示绑定事件，如果不传参数，表示触发事件。
 ```js
-// ���¼�
+// 绑定事件
 $("div").click(function() {
     ("hello");
 });
-// �����¼�
+// 触发事件
 $("div").click();
 ```
 
-#### trigger��������
-ʹ��trigger()�������Դ���ָ���¼���
+#### trigger方法触发
+使用trigger()方法可以触发指定事件。
 ```js
-// ���¼�
+// 绑定事件
 $("div").click(function() {
     alert("hello");
 });
-// �����¼�
+// 触发事件
 $("div").trigger("click");
 ```
 
-#### triggerHandler��������
-�¼�������trigger()�����ڴ����¼�ʱ������ִ��Ԫ�ص�Ĭ����Ϊ����triggerHandler()�����ڴ����¼�ʱ����ִ��Ԫ�ص�Ĭ����Ϊ��
+#### triggerHandler方法触发
+事件方法和trigger()方法在触发事件时，都会执行元素的默认行为，而triggerHandler()方法在触发事件时不会执行元素的默认行为。
 ```js
 $("input").on("focus", function() {
- $(this).val("�����");
+ $(this).val("你好吗");
 });
-$("input").triggerHandler("focus"); // �����¼�
+$("input").triggerHandler("focus"); // 触发事件
 
-// ��ʱ���ᴥ��inputĬ�ϵĹ����˸
+// 此时不会触发input默认的光标闪烁
 ```
 
-### �¼�����
-���¼�������ʱ���ͻ����¼�����Ĳ��������¼����������п���ʹ�ò����������¼�����
+### 事件对象
+当事件被触发时，就会有事件对象的产生，在事件处理函数中可以使用参数来接收事件对象。
 
 ```js
 $("div").on("click", function(event) {
