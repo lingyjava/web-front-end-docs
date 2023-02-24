@@ -68,5 +68,6 @@
 
 ### AJAX
 
-- [1·AJAX简介](./docs/js/ajax/1·AJAX简介.md)
+- [1·AJAX概念及应用](./docs/js/ajax/1·AJAX概念及应用.md)
+- [2·模板引擎](./docs/js/ajax/2·模板引擎.md)
 

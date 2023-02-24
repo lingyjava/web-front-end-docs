@@ -1,13 +1,16 @@
-# 1·AJAX简介.md
+# 1·AJAX概念及应用.md
 
 <!-- TOC -->
-- [1·AJAX简介.md](#1ajax简介md)
+- [1·AJAX概念及应用.md](#1ajax概念及应用md)
   - [官方文档](#官方文档)
   - [客户端与服务器](#客户端与服务器)
   - [URL](#url)
   - [资源请求方式](#资源请求方式)
-  - [Ajax](#ajax)
+  - [简介](#简介)
     - [$.get()](#get)
+  - [form表单](#form表单)
+  - [监听表单提交事件](#监听表单提交事件)
+  - [serialize函数](#serialize函数)
 <!-- TOC -->
 
 ## 官方文档
@@ -27,7 +30,7 @@ URL是统一资源定位符，用于标识互联网中每个资源的唯一存�
 - get请求通常用于获取服务器资源。
 - post请求通常用于向服务器提交数据。
 
-## Ajax
+## 简介
 Ajax（Asynchronous JavaScript And XML）：异步JS和XML.
 
 在网页中使用XMLHttpRequest对象和服务器进行数据交互的方式就是Ajax.
@@ -55,11 +58,46 @@ $.get('http://baidu.com', function(res) {
 });
 ```
 
+## form表单
+表单由三个基本部分组成：表单标签、表单域、表单按钮。
 
+表单标签属性：
+| 属性    |      值       | 描述                                     |
+| ------- | :-----------: | ---------------------------------------- |
+| action  |      URL      | 规定当提交表单时向何处发送表单数据。     |
+| method  |   get、post   | 规定用于发送 form-data 的 HTTP 方法。    |
+| enctype |               | 规定在发送表单数据之前如何对其进行编码。 |
+| name    |               | 规定表单的名称。                         |
+| target  | _blank、_self | 规定在何处打开 action URL。              |
 
+通过表单按钮提交使跳转到action URL的行为，叫表单的同步提交，提交后页面之前的数据将会丢失。
+为了解决同步提交的问题，可以使用表单采集数据，但使用AJAX异步提交数据。
 
+## 监听表单提交事件
+jQuery监听方式：
+```js
+$('#form1').submit(function(e) {
+  alert('已监听到提交事件');
+  // 阻止表单默认提交行为
+  e.preventDefault();
+});
 
+$('#form2').on('submit', function(e) {
+  alert('已监听到提交事件');
+});
+```
 
+## serialize函数
+jQuery提供的serialize()函数，快速获取表单中的数据。
 
-
-
+```html
+<form action="#" id="form">
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <button type="submit">提交</button>
+</form>
+```
+```js
+$('#form').serialize();
+// username=''&password=''
+```
