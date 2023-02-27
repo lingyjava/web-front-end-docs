@@ -70,4 +70,5 @@
 
 - [1·AJAX概念及应用](./docs/js/ajax/1·AJAX概念及应用.md)
 - [2·模板引擎](./docs/js/ajax/2·模板引擎.md)
+- [3·AJAX加强](./docs/js/ajax/3·AJAX加强.md)
 
