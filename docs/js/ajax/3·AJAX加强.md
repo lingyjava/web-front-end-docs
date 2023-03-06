@@ -6,6 +6,10 @@
   - [URL编码](#url编码)
   - [xhr-post请求](#xhr-post请求)
   - [数据交换格式](#数据交换格式)
+  - [JSON对象与JS对象的互相转换](#json对象与js对象的互相转换)
+  - [简单AJAX实现](#简单ajax实现)
+  - [XHR Level2 新特性](#xhr-level2-新特性)
+    - [设置HTTP请求时限](#设置http请求时限)
 
 ## XMLHttpRequest基本使用
 XMLHttpRequest(XHR)是浏览器提供的JS对象，通过它可以请求服务器的数据资源。
@@ -64,6 +68,8 @@ xhr.send('name=ly&age=18');
 xhr.onreadystatechange = function () { 
     if (xhr.readyState === 4 && xhr.status === 200) {
         xhr.responseText;
+        // AJAX封装后返回的res
+        var result = JSON.parse(xhr.responseText);
     }
 }
 ```
@@ -84,4 +90,72 @@ JSON包含对象和数组两种结构。通过两个结构的相互嵌套，可�
 
 对象结构：表示为`{}`包含的内容，数据结构为`{key1: value1, key2: value2...}`，其中key是双引号包裹的字符串，value可以是数字、字符串、布尔值、null、数组、对象6种类型。
 
-数组结构：表示为`[]`包含的内容，
+数组结构：表示为`[]`包含的内容。
+
+## JSON对象与JS对象的互相转换
+
+```js
+// js对象
+var obj = {
+    name: 'ly',
+    age: '18'
+}
+
+// json对象本质是字符串,表示js对象
+var json = '{"name": "ly", "age": "18"}'
+
+// 使用JSON.parse()方法将json字符串转换为js对象
+// 将字符串转为数据对象的过程又称为反序列化
+var obj = JSON.parse(json);
+
+// 使用JSON.stringify()方法将js对象转换为json字符串
+// 将数据对象转为字符串的过程又称为序列化
+var json = JSON.stringify(obj);
+```
+
+## 简单AJAX实现
+- [AJAX简单实现](././../../../code/js/ajax.js)
+
+调用方式
+```javascript
+<script>
+    var result;
+    ajax({
+        method: 'GET',
+        url: 'https://www.baidu.com/',
+        data: {
+            
+        },
+        success: function(res) {
+            console.log(res);
+            result = res;
+        }
+    });
+    console.log(result);
+</script>
+```
+
+## XHR Level2 新特性
+旧版XHR的缺点：
+- 只支持文本数据传输，无法读取或上传文件。
+- 传送和接收数据没有进度展示。
+
+XHR Level2新概念：
+- 可以设置HTTP请求时限。
+- 可以使用FormData对象管理表单数据。
+- 可以上传文件。
+- 可以获得数据传输的进度信息。
+
+### 设置HTTP请求时限
+XHR对象增加了timeout属性，可以设置请求最长等待时间，超过时限自动停止HTTP请求。
+```js
+// 设置请求时限为3000毫秒
+xhr.timeout = 3000;
+```
+与timeout属性配套的有timeout事件，用于指定回调函数。
+```js
+xhr.ontimeout = function(event) {
+    alert('请求超时');
+}
+```
+
