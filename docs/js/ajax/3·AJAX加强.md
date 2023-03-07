@@ -10,6 +10,15 @@
   - [简单AJAX实现](#简单ajax实现)
   - [XHR Level2 新特性](#xhr-level2-新特性)
     - [设置HTTP请求时限](#设置http请求时限)
+    - [FormData对象](#formdata对象)
+    - [上传文件](#上传文件)
+    - [显示文件上传进度](#显示文件上传进度)
+  - [jQuery高级用法](#jquery高级用法)
+    - [文件上传](#文件上传)
+    - [ajaxStart ajaxStop](#ajaxstart-ajaxstop)
+  - [axios](#axios)
+    - [axios - get post](#axios---get-post)
+    - [axios函数](#axios函数)
 
 ## XMLHttpRequest基本使用
 XMLHttpRequest(XHR)是浏览器提供的JS对象，通过它可以请求服务器的数据资源。
@@ -159,3 +168,167 @@ xhr.ontimeout = function(event) {
 }
 ```
 
+### FormData对象
+FormData对象可以模拟表单操作。
+```js
+// 1. 创建FormData对象
+var fd = new FormData();
+
+// 2.1 添加表单项
+fd.append('name', 'ly');
+fd.append('pwd', '123456');
+
+// 2.2 获取表单值
+var form = document.querySelector('#form');
+var fd = new FormData(form);
+
+// 3. 提交fd对象
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://www.baidu.com')
+xhr.send(fd);
+```
+
+### 上传文件
+XHR对象不仅可以发送文本信息，还可以上传文件。
+
+UI结构:
+```html
+<input type="file" id="file">
+<button id="upload">上传文件</button>
+<img src="" alt="" width="200px" id="img">
+```
+
+```js
+// 1. 获取文件
+var upload = document.querySelector('#upload');
+upload.addEventListener('click', function() {
+    var files = document.querySelector('#file').files;
+    // 验证是否上传文件
+    if (files.length <= 0) {
+        return alert('请上传文件');
+    }
+
+    // 追加文件参数
+    var fd = new FormData();
+    fd.append('avatar', files[0]);
+
+    // 发起请求
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://www.baidu.com');
+    xhr.send(fd);
+
+    // 接收数据
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            if (data.status === 200) {
+                // 上传文件成功
+                document.querySelector('#img').src = 'https://www.baidu.com' + data.url;
+            } else {
+                console.log(data.message);
+            }
+        }
+    }
+});
+```
+
+### 显示文件上传进度
+通过监听 xhr.upload.onprogress 事件获取文件上传进度。
+```js
+var xhr = new XMLHttpRequest();
+xhr.upload.onprogress = function(e) {
+    // e.lengthComputable是一个布尔值，表示当前上传资源是否具有可计算的长度
+    if (e.lengthComputable) {
+        // e.loaded 已传输字节
+        // e.total 需传输总字节
+        // 完成率
+        var percentComplete = Math.ceil((e.loaded / e.total) * 100);
+        $('#percent')
+            // 设置进度条宽度
+            .attr('style', 'width' + percentComplete + '%')
+            // 显示上传进度
+            .html(percentComplete + '%');
+    }
+}
+
+// 监听上传完成事件
+xhr.upload.onload = function() {
+    $('#percent')
+        // 移除上传中的类样式
+        .removeClass()
+        // 添加上传完成的新样式
+        .addClass('className');
+}
+```
+
+## jQuery高级用法
+
+### 文件上传
+```js
+$.ajax({
+    method: 'POST',
+    url: 'https://www.baidu.com',
+    data: fd, // FormData对象
+    // 不修改Content-Type属性，使用fd对象的默认值
+    contentType: false,
+    // 不对fd对象中的数据进行url编码，将数据原样发送到服务器
+    processData: false,
+    success: function(res) {
+        console.log(res);
+    }
+});
+```
+
+### ajaxStart ajaxStop
+AJAX请求开始时会执行ajaxStart函数，结束时执行ajaxStop函数。
+可以在函数中实现loading效果。
+```
+// 该函数会监听当前文档内所有的AJAX请求
+$(document).ajaxStart(function() {
+    $('#loading').show();
+});
+$(document).ajaxStop(function() {
+    $('#loading').hide();
+});
+```
+
+## axios
+Axios是网络数据请求库，相比于XHR对象更简单易用，相比于jQuery更轻量化。
+- [axios](https://axios-http.com/)
+
+### axios - get post
+使用axios发起get请求。
+```js
+var url = 'https://www.baidu.com';
+var paramObj = {
+    name: 'ly',
+    age: 18
+};
+// 发送get请求
+axios.get(url, {params: paramObj}).then(function (res) { 
+    var result = res.data;
+    console.log(res);
+ });
+// 发送post请求
+ axios.post(url, paramObj).then(function(res) {
+    var result = res.data;
+    console.log(res);
+ });
+```
+
+### axios函数
+类似于ajax函数，兼容get、post请求。
+```js
+axios({
+    method: '请求类型',
+    url: '请求地址',
+    data: {
+        // post请求参数
+    },
+    params: {
+        // get请求参数
+    }
+ }).then(function(res) {
+    
+ });
+```
