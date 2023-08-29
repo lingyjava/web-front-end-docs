@@ -1,7 +1,7 @@
-# 1·AJAX概念及应用.md
+# 1·AJAX简介
 
 <!-- TOC -->
-- [1·AJAX概念及应用.md](#1ajax概念及应用md)
+- [1·AJAX简介](#1ajax简介)
   - [官方文档](#官方文档)
   - [客户端与服务器](#客户端与服务器)
   - [URL](#url)
@@ -11,7 +11,6 @@
   - [form表单](#form表单)
   - [监听表单提交事件](#监听表单提交事件)
   - [serialize函数](#serialize函数)
-<!-- TOC -->
 
 ## 官方文档
 - [菜鸟教程-AJAX](https://www.runoob.com/ajax/ajax-tutorial.html)
