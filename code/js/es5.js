@@ -1,3 +1,5 @@
+"use strict"
+
 // es5 中的类继承
 function Person (name, age) {
     this.name = name
@@ -54,7 +56,7 @@ var person = {
 const propertyArr = Object.keys(person)
 console.log(propertyArr)
 
-for (v in person) {
+for (const v in person) {
     console.log(v)
 }
 
