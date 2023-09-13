@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+
+    <script src="../lib/cdn.jsdelivr.net_npm_axios_dist_axios.min.js"></script>
+
+    <script>
+        // axios({
+        //     // 请求类型
+        //     method: "GET",
+        //     // 请求路径
+        //     url: 'http://localhost:80/api/cors/test',
+        //     // query 参数
+        //     params: {
+        //         p1: 'param1'
+        //     },
+        //     // body 参数
+        //     data: {
+        //         p2: 'param2'
+        //     }
+        // }).then((result) => {
+        //     console.log(result);
+        //     document.querySelector('div').innerHTML = result.data
+        // }).catch((error) => {
+        //     // 错误处理
+        //     alert("请求失败：" + error.message)
+        // })
+
+
+        // axios 原理创建Promise对象
+        // const p = new Promise ((resolve, reject) => {
+        //     const xhr = new XMLHttpRequest()
+        //     xhr.open('GET', 'http://localhost:80/api/cors/test')
+        //     xhr.addEventListener('loadend', () => {
+        //         // xhr如何判断响应成功还是失败的？
+        //         // 2xx开头的都是成功响应状态码
+        //         console.log(xhr);
+        //         if (xhr.status >= 200 && xhr.status < 300) {
+        //             resolve({
+        //                 data: xhr.response
+        //             })
+        //         } else {
+        //             reject(new Error(xhr.statusText))
+        //         }
+        //     })
+        //     xhr.send()
+        // })
+
+        // 执行异步任务-并传递结果
+        // 成功调用：resolve(值) 触发 then() 执行
+        // 失败调用：reject(值) 触发 catch() 执行
+        // 接收结果
+        // p.then(result => {
+        //     // 成功
+        //     document.querySelector('div').innerHTML = result.data
+        // }).catch(error => {
+        //     // 失败
+        //     alert("请求失败：" + error.message)
+        // })
+
+        // 链式调用
+        // axios({
+        //     method: "GET",
+        //     url: 'http://localhost:80/api/cors/test'
+        // }).then((result) => {
+        //     console.log(result);
+        //     document.querySelector('div').innerHTML = result.data
+        //     return axios({
+        //         method: "GET",
+        //         url: 'http://localhost:80/api/cors/test'
+        //     })
+        // }).then(result => {
+        //     document.querySelector('p').innerHTML = result.data
+        // })
+        // // ...持续链式调用
+        // .catch((error) => {
+        //     // 错误处理
+        //     alert("请求失败：" + error.message)
+        // })
+
+
+        // async function render() {
+        //     const r1 = await axios({
+        //         method: "GET",
+        //         url: 'http://localhost:80/api/cors/test'
+        //     })
+        //     const r2 = await axios({
+        //         method: "GET",
+        //         url: 'http://localhost:80/api/cors/test2'
+        //     })
+
+        //     document.querySelector('div').innerHTML = r1.data
+        //     document.querySelector('p').innerHTML = r2.data
+        // }
+        // render()
+
+        // Promise.all
+        const p1 = axios({
+            method: "GET",
+            url: 'http://localhost:80/api/cors/test'
+        })
+        const p2 = axios({
+            method: "GET",
+            url: 'http://localhost:80/api/cors/test2'
+        })
+
+        const pAll = Promise.all([p1, p2])
+        pAll.then(result => {
+            // result为数组
+            console.log(result);
+            document.querySelector('div').innerHTML = result[0].data
+            document.querySelector('p').innerHTML = result[1].data
+        }).catch((error) => {
+            // 错误处理
+            alert("请求失败：" + error.message)
+        })
+
+    </script>
+</head>
+<body>
+    <div>this axios test</div>
+    
+    <p></p>
+</body>
+</html>
